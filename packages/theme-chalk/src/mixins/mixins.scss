@@ -65,8 +65,8 @@
   }
 }
 
-/* BEM
- -------------------------- */
+/* BEM样式化 (Block, Element, Modifier) -------------------------- 
+-------------------------- */
 @mixin b($block) {
   $B: $namespace+'-'+$block !global;
 
@@ -161,7 +161,8 @@
     }
   }
 }
-
+/* .is-XXX
+ -------------------------- */
 @mixin when($state) {
   @at-root {
     &.#{$state-prefix + $state} {
