@@ -1,23 +1,31 @@
 <template>
   <div style="margin: 20px;">
     <el-input v-model="input" placeholder="请输入内容"></el-input>
-    <el-scrollbar style="height: 200px;">
-      <p v-for="item in 10">{{ item }}</p>
-    </el-scrollbar>
+    <el-transfer v-model="value" :data="data"></el-transfer>
   </div>
 </template>
 
 <script>
 export default {
   data() {
+    const generateData = _ => {
+      const data = [];
+      for (let i = 1; i <= 15; i++) {
+        data.push({
+          key: i,
+          label: `备选项 ${i}`,
+          disabled: i % 4 === 0
+        });
+      }
+      return data;
+    };
     return {
-      input: 'Hello Element UI!'
+      input: 'Hello Element UI!',
+      data: generateData(),
+      value: [1, 4]
+
     };
   }
 };
 </script>
-<style lang="scss">
-.el-scrollbar__wrap {
-  overflow-x: hidden !important;
-}
-</style>
+<style lang="scss"></style>
